@@ -47,9 +47,8 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  void pontuar() {}
+ double somatorio = 1;
 
-  void perder() {}
 
   Future<void> sortear() async {
     int i = 0;
@@ -65,12 +64,17 @@ class _HomePageState extends State<HomePage> {
 
     if (imagemSelecionada[0] == imagemSelecionada[1] &&
         imagemSelecionada[1] == imagemSelecionada[2]) {
+
+      somatorio = somatorio + 1;
+
       showDialog(
         context: context,
         builder:
             (context) =>
                 AlertDialog(title: Text("Parabens"), content: Text("Miau")),
       );
+    } else {
+      somatorio = somatorio - 1;
     }
   }
 
@@ -97,7 +101,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
-          Row(
+         Row(
             //LINHA
             mainAxisAlignment: MainAxisAlignment.center, //alinhamento
             children: [
@@ -121,7 +125,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-        ],
+        Text(somatorio.toString())
+       ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
