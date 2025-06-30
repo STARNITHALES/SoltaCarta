@@ -47,8 +47,7 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
- double somatorio = 1;
-
+  double somatorio = 1;
 
   Future<void> sortear() async {
     int i = 0;
@@ -64,8 +63,7 @@ class _HomePageState extends State<HomePage> {
 
     if (imagemSelecionada[0] == imagemSelecionada[1] &&
         imagemSelecionada[1] == imagemSelecionada[2]) {
-
-      somatorio = somatorio + 1;
+      somatorio = somatorio + 10;
 
       showDialog(
         context: context,
@@ -101,7 +99,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
-         Row(
+          Row(
             //LINHA
             mainAxisAlignment: MainAxisAlignment.center, //alinhamento
             children: [
@@ -125,8 +123,13 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-        Text(somatorio.toString())
-       ],
+          Text(
+            "Pontos: " + somatorio.toString(),
+            style: TextStyle(fontSize: 20,
+            color: Colors.black, fontWeight: FontWeight.w500,
+            backgroundColor: Colors.blue,),
+          ),
+        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
